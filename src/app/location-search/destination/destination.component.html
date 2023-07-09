@@ -1,0 +1,32 @@
+<div
+  class="destination-component"
+  [ngClass]="showPicker ? 'active' : ''"
+  (clickOutside)="onClickedOutside()"
+>
+  <div
+    class="destination-picker"
+    *ngIf="showPicker && filteredCities.length > 0"
+    #destinationPicker
+  >
+    <ul>
+      <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+        {{ city.name }}, {{ city.country }}
+      </li>
+    </ul>
+  </div>
+  <div class="upper-container">
+    <span class="icon"></span>
+    <span class="title">Destination</span>
+  </div>
+  <div class="lower-container">
+    <span class="icon" [ngClass]="{ active: isLocationSelected }"></span>
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      placeholder="{{ this.placeholderText }}"
+      (blur)="restorePlaceholder()"
+      (focus)="clearPlaceholder()"
+      (click)="onShowPicker()"
+    />
+  </div>
+</div>
