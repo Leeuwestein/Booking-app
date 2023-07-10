@@ -18,7 +18,7 @@ import { cities } from './citydata';
       transition(':enter', [
         style({ scale: 0.8, opacity: 0 }),
         animate(
-          '1000ms cubic-bezier(.47,1.64,.41,.8)',
+          '600ms cubic-bezier(.47,1.64,.41,.8)',
           style({ scale: 1, opacity: 1 })
         ),
       ]),

@@ -8,12 +8,13 @@ import { HeaderComponent } from './header/header.component';
 import { LocationSliderComponent } from './location-slider/location-slider.component';
 import { LocationSearchComponent } from './location-search/location-search.component';
 import { DestinationComponent } from './location-search/destination/destination.component';
-import { DatepickerComponent } from './location-search/datepicker/datepicker.component';
+import { DateComponent } from './location-search/date/date.component';
 import { TravelersComponent } from './location-search/travelers/travelers.component';
 import { ActivityTypeComponent } from './location-search/activity-type/activity-type.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from '../app/location-search/click-outside.directive';
 import { DestinationPickerComponent } from './location-search/destination/destination-picker/destination-picker.component';
+import { DatePickerComponent } from './location-search/date/date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,12 @@ import { DestinationPickerComponent } from './location-search/destination/destin
     LocationSliderComponent,
     LocationSearchComponent,
     DestinationComponent,
-    DatepickerComponent,
+    DateComponent,
     TravelersComponent,
     ActivityTypeComponent,
     ClickOutsideDirective,
     DestinationPickerComponent,
+    DatePickerComponent,
   ],
   imports: [
     BrowserModule,
