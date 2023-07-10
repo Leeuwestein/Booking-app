@@ -25,11 +25,13 @@
 
     .months-container {
       display: flex;
+      overflow: hidden;
     }
 
     .month-item {
       width: 40%;
-      font-size: 1.1em;
+      font-size: 1.3em;
+      padding: 0 30px;
 
       .calendar {
         display: grid;

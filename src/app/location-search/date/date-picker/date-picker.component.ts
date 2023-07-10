@@ -64,14 +64,13 @@ export class DatePickerComponent implements OnInit {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth();
+    const currentDay = currentDate.getDate();
 
-    return (
-      year > currentYear ||
-      (year === currentYear && month > currentMonth) ||
-      (year === currentYear &&
-        month === currentMonth &&
-        day < currentDate.getDate())
-    );
+    if (year === currentYear && month === currentMonth && day < currentDay) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   getNextMonth() {
