@@ -13,6 +13,7 @@ import { TravelersComponent } from './location-search/travelers/travelers.compon
 import { ActivityTypeComponent } from './location-search/activity-type/activity-type.component';
 
 import { ClickOutsideDirective } from '../app/location-search/click-outside.directive';
+import { DestinationPickerComponent } from './location-search/destination/destination-picker/destination-picker.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ClickOutsideDirective } from '../app/location-search/click-outside.dire
     TravelersComponent,
     ActivityTypeComponent,
     ClickOutsideDirective,
+    DestinationPickerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -29,10 +29,15 @@ export class DestinationComponent {
     if (!filteredText) {
       return [];
     }
+
+    if (filteredText.length === 1) {
+      return this.cities.filter((city) =>
+        city.name.toLowerCase().startsWith(filteredText)
+      );
+    }
+
     return this.cities.filter((city) =>
-      city.name
-        .toLowerCase()
-        .startsWith(filteredText.substr(0, filteredText.length))
+      city.name.toLowerCase().includes(filteredText)
     );
   }
 

@@ -3,17 +3,13 @@
   [ngClass]="showPicker ? 'active' : ''"
   (clickOutside)="onClickedOutside()"
 >
-  <div
-    class="destination-picker"
+  <app-destination-picker
     *ngIf="showPicker && filteredCities.length > 0"
-    #destinationPicker
+    [filteredCities]="filteredCities"
+    (citySelected)="selectCity($event)"
   >
-    <ul>
-      <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
-        {{ city.name }}, {{ city.country }}
-      </li>
-    </ul>
-  </div>
+  </app-destination-picker>
+
   <div class="upper-container">
     <span class="icon"></span>
     <span class="title">Destination</span>

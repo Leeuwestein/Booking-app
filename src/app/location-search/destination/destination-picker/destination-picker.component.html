@@ -1,0 +1,7 @@
+<div class="destination-picker">
+  <ul>
+    <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+      {{ city.name }}, {{ city.country }}
+    </li>
+  </ul>
+</div>
