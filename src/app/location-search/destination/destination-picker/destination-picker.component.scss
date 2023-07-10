@@ -1,8 +1,7 @@
 .destination-picker {
-  opacity: 1;
   position: absolute;
+  transform: translate(0px, -170px);
   min-width: 330px;
-  top: -170px;
   min-height: 125px;
   border-radius: 20px;
   background-color: #fff;

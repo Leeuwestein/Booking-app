@@ -4,6 +4,7 @@
   (clickOutside)="onClickedOutside()"
 >
   <app-destination-picker
+    [@bounceAnimation]
     *ngIf="showPicker && filteredCities.length > 0"
     [filteredCities]="filteredCities"
     (citySelected)="selectCity($event)"

@@ -11,7 +11,7 @@ import { DestinationComponent } from './location-search/destination/destination.
 import { DatepickerComponent } from './location-search/datepicker/datepicker.component';
 import { TravelersComponent } from './location-search/travelers/travelers.component';
 import { ActivityTypeComponent } from './location-search/activity-type/activity-type.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from '../app/location-search/click-outside.directive';
 import { DestinationPickerComponent } from './location-search/destination/destination-picker/destination-picker.component';
 
@@ -28,7 +28,12 @@ import { DestinationPickerComponent } from './location-search/destination/destin
     ClickOutsideDirective,
     DestinationPickerComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

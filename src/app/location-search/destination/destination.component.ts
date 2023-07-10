@@ -1,23 +1,40 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { gsap } from 'gsap';
+import { Component } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
+
+import { cities } from './citydata';
 
 @Component({
   selector: 'app-destination',
   templateUrl: './destination.component.html',
   styleUrls: ['./destination.component.scss'],
+  animations: [
+    trigger('bounceAnimation', [
+      transition(':enter', [
+        style({ scale: 0.8, opacity: 0 }),
+        animate(
+          '1000ms cubic-bezier(.47,1.64,.41,.8)',
+          style({ scale: 1, opacity: 1 })
+        ),
+      ]),
+      transition(':leave', [
+        animate(
+          '400ms cubic-bezier(.47,1.64,.41,.8)',
+          style({ scale: 0.8, opacity: 0 })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class DestinationComponent {
   constructor() {}
 
-  cities = [
-    { name: 'Venice', country: 'Italy' },
-    { name: 'Venice', country: 'Italy' },
-    { name: 'Venice', country: 'Italy' },
-    { name: 'Venice', country: 'Italy' },
-    { name: 'Paris', country: 'France' },
-    { name: 'New York', country: 'USA' },
-  ];
-
+  cities: any = cities;
   showPicker = false;
   isLocationSelected = false;
   searchText = '';
@@ -31,14 +48,16 @@ export class DestinationComponent {
     }
 
     if (filteredText.length === 1) {
-      return this.cities.filter((city) =>
-        city.name.toLowerCase().startsWith(filteredText)
-      );
+      return this.cities
+        .filter((city: any) => city.name.toLowerCase().startsWith(filteredText))
+        .slice(0, 4);
     }
 
-    return this.cities.filter((city) =>
+    const filtered = this.cities.filter((city: any) =>
       city.name.toLowerCase().includes(filteredText)
     );
+
+    return filtered.slice(0, 4);
   }
 
   selectCity(city: any) {
