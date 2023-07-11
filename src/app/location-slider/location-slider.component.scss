@@ -1,16 +1,32 @@
 .location-slider {
+  position: relative;
   margin: 10px 0;
-  min-height: 670px;
+  height: 670px;
   display: flex;
-  background-image: url(../../assets/img/slide1.png);
+  // background-image: url(../../assets/img/slide1.png);
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.95;
   border-radius: 40px;
+  overflow: hidden;
 
-  .location-slider-inner {
+  .vignette {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 360px 90px rgba(0, 0, 0, 0.2) inset;
+    pointer-events: none;
+  }
+
+  .location-slider-content {
+    position: absolute;
+    top: 0;
     color: #ffffff;
     margin-left: 76px;
+    z-index: 2;
 
     .title {
       max-width: 750px;
@@ -34,5 +50,72 @@
 
   a.button {
     margin-top: 30px;
+  }
+
+  .slider-prev-button {
+    position: absolute;
+    display: flex;
+    top: 61%;
+    width: 60px;
+    height: 60px;
+    right: 50px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.4392156863);
+    z-index: 1;
+  }
+
+  .slick-next-button {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    top: 72%;
+    width: 60px;
+    height: 60px;
+    right: 50px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.4392156863);
+  }
+}
+
+.slider-next-image-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  top: 47.5%;
+  left: 63%;
+
+  .star-background {
+    height: 20px;
+    width: 20px;
+    background-color: #3580d9;
+    border-radius: 5px;
+    background-image: url(../../assets/img/star-white.png);
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .text {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+}
+
+.slider-main-title {
+  position: absolute;
+  display: flex;
+  width: 320px;
+  height: 150px;
+  left: 450px;
+  z-index: 2;
+  top: 100px;
+
+  h2.slideMainTitle {
+    font-size: 7em;
+    color: #fff;
+    font-weight: 300;
   }
 }

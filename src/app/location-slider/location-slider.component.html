@@ -1,5 +1,56 @@
 <div class="location-slider">
-  <div class="location-slider-inner">
+  <div class="vignette"></div>
+
+  <!-- Background Image slider -->
+  <ngx-slick-carousel
+    class="slider slider-main-image"
+    #slickModal="slick-carousel"
+    #slickMain
+    [config]="slideConfig"
+  >
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <img src="{{ slide.img }}" alt="" width="100%" height="100%" />
+    </div>
+  </ngx-slick-carousel>
+
+  <!-- Background Title slider -->
+  <ngx-slick-carousel
+    class="slider slider-main-title"
+    #slickModal="slick-carousel"
+    #slickMainTitle
+    [config]="slideConfig"
+  >
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <h2 class="slideMainTitle">{{ slide.title }}</h2>
+    </div>
+  </ngx-slick-carousel>
+
+  <div class="slider-next-image-content">
+    <div class="star-background"></div>
+    <div class="text">
+      <span>Next destination</span>
+    </div>
+  </div>
+
+  <!-- Next Destination Slider -->
+  <div class="slider-next-image-container">
+    <ngx-slick-carousel
+      class="slider slider-next-image"
+      #slickModal="slick-carousel"
+      #slickNext
+      [config]="nextSlideConfig"
+    >
+      <div ngxSlickItem *ngFor="let slide of nextSlides" class="slide">
+        <img src="{{ slide.img }}" alt="" width="100%" height="100%" />
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
+  <a href="#" class="slider-prev-button" (click)="nextSlide()"> </a>
+
+  <a href="#" class="slider-next-button" (click)="nextSlide()"> </a>
+
+  <div class="location-slider-content">
     <div class="title">
       <span>Relax, dream, love, sleep, in...</span>
     </div>

@@ -32,3 +32,63 @@ a.button {
     font-size: 1.3em;
   }
 }
+
+.slider-main-image {
+  height: 100%;
+  width: 100%;
+
+  ul.slick-dots {
+    bottom: 140px !important;
+
+    li.slick-active button::before {
+      color: #fff;
+      opacity: 1;
+    }
+
+    button {
+      &::before {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .slick-dots li button:before {
+    color: #fff !important;
+  }
+}
+
+.slider-next-image-container {
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  right: 12%;
+  bottom: 22%;
+
+  .slider-next-image {
+    button.slick-prev.slick-arrow {
+      display: none !important;
+    }
+
+    button.slick-next.slick-arrow {
+      display: none !important;
+    }
+
+    .slick-dots {
+      display: none !important;
+    }
+  }
+}
+
+.slider-main-title {
+  ul.slick-dots {
+    display: none !important;
+  }
+
+  button.slick-prev.slick-arrow,
+  button.slick-next.slick-arrow {
+    display: none !important;
+  }
+}
