@@ -46,6 +46,35 @@
     </ngx-slick-carousel>
   </div>
 
+  <!-- Next Destination Title Slider -->
+  <div class="slider-next-title-container">
+    <ngx-slick-carousel
+      class="slider slider-next-title"
+      #slickModal="slick-carousel"
+      #slickNextTitle
+      [config]="nextSlideConfig"
+    >
+      <div ngxSlickItem *ngFor="let slide of nextSlides" class="slide">
+        <h3 class="slideNextTitle">{{ slide.title }}</h3>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
+  <!-- Location Lower Title Slider -->
+  <div class="slider-lower-location-container">
+    <img src="../../assets/img/star-white.png" />
+    <ngx-slick-carousel
+      class="slider slider-lower-location"
+      #slickModal="slick-carousel"
+      #slickLowerLocation
+      [config]="lowerLocationConfig"
+    >
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <h4 class="slideLowerLocation">{{ slide.location }}</h4>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
   <a href="#" class="slider-prev-button" (click)="nextSlide()"> </a>
 
   <a href="#" class="slider-next-button" (click)="nextSlide()"> </a>

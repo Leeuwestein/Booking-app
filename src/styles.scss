@@ -60,12 +60,14 @@ a.button {
 .slider-next-image-container {
   border-radius: 20px;
   overflow: hidden;
-  z-index: 2;
+  z-index: 0;
   position: absolute;
   width: 25%;
   height: 25%;
   right: 12%;
   bottom: 22%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 
   .slider-next-image {
     button.slick-prev.slick-arrow {
@@ -82,7 +84,9 @@ a.button {
   }
 }
 
-.slider-main-title {
+.slider-main-title,
+.slider-next-title,
+.slider-lower-location {
   ul.slick-dots {
     display: none !important;
   }
