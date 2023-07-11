@@ -1,37 +1,28 @@
-<div class="date-picker">
-  <div class="upper-row"></div>
-  <div class="month-row middle-row">
-    <div class="months-container">
-      <div class="month-item" *ngFor="let month of months; let i = index">
-        <h2>{{ monthNames[month.month] }} {{ month.year }}</h2>
+<div class="datepicker">
+  <ngb-datepicker
+    #dp
+    (dateSelect)="onDateSelection($event)"
+    [displayMonths]="2"
+    [dayTemplate]="t"
+    outsideDays="hidden"
+  >
+  </ngb-datepicker>
 
-        <div class="calendar-days-description">
-          <div
-            class="calendar-days-description-item"
-            *ngFor="let item of daysOfWeek"
-          >
-            <span>{{ item }}</span>
-          </div>
-        </div>
+  <ng-template #t let-date let-focused="focused">
+    <span
+      class="custom-day"
+      [class.focused]="focused"
+      [class.range]="isRange(date)"
+      [class.faded]="isHovered(date) || isInside(date)"
+      (mouseenter)="hoveredDate = date"
+      (mouseleave)="hoveredDate = null"
+    >
+      {{ date.day }}
+    </span>
+  </ng-template>
 
-        <div class="calendar-wrapper">
-          <div class="calendar">
-            <div
-              class="calendar-item"
-              *ngFor="let item of month.days"
-              [ngClass]="{
-                expired: isDateExpired(item, month.month, month.year)
-              }"
-            >
-              <span>{{ item }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="lower-row">
-    <a href="#" class="button button-done">Done</a>
-    <a href="#" class="button" (click)="getNextMonth()">Get Next Month</a>
+  <hr />
+  <div class="datepicker-button-container">
+    <a (click)="onFinishedPicking()" class="button button-done">Done</a>
   </div>
 </div>

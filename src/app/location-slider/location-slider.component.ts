@@ -40,6 +40,10 @@ export class LocationSliderComponent {
 
   ngOnInit() {
     this.sliderService.registerSlider(this);
+
+    // setInterval(() => {
+    //   this.nextSlide();
+    // }, 4000);
   }
 
   slides = [

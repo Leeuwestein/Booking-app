@@ -1,83 +1,79 @@
-import { Component, OnInit } from '@angular/core';
-
-interface Month {
-  month: any;
-  year: any;
-  days: any[];
-}
+import { Component, EventEmitter } from '@angular/core';
+import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
   styleUrls: ['./date-picker.component.scss'],
+  styles: [
+    `
+      .custom-day {
+        text-align: center;
+        padding: 0.185rem 0.25rem;
+        display: inline-block;
+        height: 2rem;
+        width: 2rem;
+      }
+      .custom-day.focused {
+        background-color: #e6e6e6;
+      }
+      .custom-day.range,
+      .custom-day:hover {
+        background-color: rgb(2, 117, 216);
+        color: white;
+      }
+      .custom-day.faded {
+        background-color: rgba(2, 117, 216, 0.5);
+      }
+    `,
+  ],
 })
-export class DatePickerComponent implements OnInit {
-  monthNames: string[] = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+export class DatePickerComponent {
+  hoveredDate: NgbDate | null = null;
 
-  daysOfWeek: string[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  months: Month[] = [];
+  fromDate: NgbDate;
+  toDate: NgbDate | null = null;
 
-  ngOnInit() {
-    const date = new Date();
-    const currentMonth = date.getMonth();
-    const currentYear = date.getFullYear();
-
-    this.generateMonth(currentMonth, currentYear);
+  constructor(calendar: NgbCalendar) {
+    this.fromDate = calendar.getToday();
+    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
 
-  generateMonth(month: number, year: number) {
-    const firstOfMonth = new Date(year, month, 1);
-    const startingDay = (firstOfMonth.getDay() + 6) % 7;
-    const daysInCurrentMonth = new Date(year, month + 1, 0).getDate();
-
-    const currentMonth: Month = {
-      month: month,
-      year: year,
-      days: [],
-    };
-
-    for (let i = 0; i < startingDay; i++) {
-      currentMonth.days.push(null);
-    }
-
-    for (let i = 1; i <= daysInCurrentMonth; i++) {
-      currentMonth.days.push(i);
-    }
-
-    this.months.push(currentMonth);
-  }
-
-  isDateExpired(day: number, month: number, year: number): boolean {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-    const currentDay = currentDate.getDate();
-
-    if (year === currentYear && month === currentMonth && day < currentDay) {
-      return true;
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
     } else {
-      return false;
+      this.toDate = null;
+      this.fromDate = date;
     }
   }
 
-  getNextMonth() {
-    const lastMonth = this.months[this.months.length - 1];
-    const nextMonth = lastMonth.month + 1;
-    const nextYear = lastMonth.year;
+  isHovered(date: NgbDate) {
+    return (
+      this.fromDate &&
+      !this.toDate &&
+      this.hoveredDate &&
+      date.after(this.fromDate) &&
+      date.before(this.hoveredDate)
+    );
+  }
 
-    this.generateMonth(nextMonth, nextYear);
+  isInside(date: NgbDate) {
+    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return (
+      date.equals(this.fromDate) ||
+      (this.toDate && date.equals(this.toDate)) ||
+      this.isInside(date) ||
+      this.isHovered(date)
+    );
+  }
+
+  onFinishedPicking() {
+    console.log(this.fromDate, this.toDate);
   }
 }

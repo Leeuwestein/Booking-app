@@ -1,6 +1,6 @@
 body {
-  // background-image: url(../src/assets/img/backgroundoverlay.png);
-  background-size: 1100px;
+  // background-image: url(../src/assets/img/datepickervoorbeeld.png);
+  background-size: 1150px;
   background-repeat: no-repeat;
   background-position: top;
   background-color: #eeecea;
@@ -94,5 +94,82 @@ a.button {
   button.slick-prev.slick-arrow,
   button.slick-next.slick-arrow {
     display: none !important;
+  }
+}
+
+ngb-datepicker {
+  width: 100%;
+
+  .ngb-datepicker-navigation-select > .form-select {
+    border-radius: 10px !important;
+    border: 2px solid #0275d8 !important;
+  }
+
+  .ngb-dp-arrow-btn {
+    margin: 62px 0 0 0;
+  }
+
+  .ngb-dp-header {
+    margin: 20px 0;
+  }
+
+  .ngb-dp-months {
+    font-size: 1.2em;
+    color: #969ba4;
+    display: flex;
+    justify-content: space-evenly;
+
+    .ngb-datepicker-month {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ngb-dp-month-name {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      font-size: 1.5em !important;
+      padding-left: 5px !important;
+      color: #2e3339 !important;
+    }
+
+    .ngb-dp-week {
+      padding: 0 !important;
+
+      .ngb-dp-weekday {
+        width: 36px;
+        height: 36px;
+        margin-right: 0;
+      }
+
+      .ngb-dp-day {
+        width: 2.3rem;
+        height: 2.3rem;
+        .custom-day {
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100px;
+          height: 30px;
+          width: 30px;
+          color: #2e3339;
+
+          &.range {
+            color: #fff;
+
+            &.faded {
+              color: #2e3339;
+            }
+          }
+
+          &.faded {
+            background-color: #d9e8f8;
+          }
+        }
+      }
+    }
   }
 }
