@@ -3,15 +3,24 @@
   (click)="onShowPicker()"
   (clickOutside)="onClickedOutside()"
 >
-  <app-date-picker *ngIf="showPicker" [@bounceAnimation]></app-date-picker>
-  <div class="date-component-section">
+  <app-date-picker
+    *ngIf="showPicker"
+    [@bounceAnimation]
+    (dateSelection)="onDateSelection($event)"
+    (closePicker)="onClickedOutside()"
+  ></app-date-picker>
+  <div class="date-component-section checkin">
     <div class="upper-container upper-container-1">
       <span class="icon"></span>
       <span class="title">Check in</span>
     </div>
     <div class="lower-container lower-container-1">
       <span class="icon"></span>
-      <input type="text" placeholder="Add a date" />
+      <input
+        type="text"
+        placeholder="Add a date"
+        [value]="formatDate(pickedFromDate)"
+      />
     </div>
   </div>
   <div class="date-component-section">
@@ -21,7 +30,11 @@
     </div>
     <div class="lower-container lower-container-2">
       <span class="icon"></span>
-      <input type="text" placeholder="Add a date" />
+      <input
+        type="text"
+        placeholder="Add a date"
+        [value]="formatDate(pickedToDate)"
+      />
     </div>
   </div>
 </div>

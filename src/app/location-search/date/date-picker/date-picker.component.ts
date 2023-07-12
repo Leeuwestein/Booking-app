@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -33,10 +33,12 @@ export class DatePickerComponent {
 
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
+  @Output() dateSelection: EventEmitter<any> = new EventEmitter<any>();
+  @Output() closePicker: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(calendar: NgbCalendar) {
     this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    this.toDate = calendar.getNext(calendar.getToday(), 'd', 3);
   }
 
   onDateSelection(date: NgbDate) {
@@ -74,6 +76,12 @@ export class DatePickerComponent {
   }
 
   onFinishedPicking() {
-    console.log(this.fromDate, this.toDate);
+    this.dateSelection.emit({
+      fromDate: this.fromDate,
+      toDate: this.toDate,
+    });
+    setTimeout(() => {
+      this.closePicker.emit();
+    }, 0);
   }
 }

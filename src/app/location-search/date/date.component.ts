@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-date',
@@ -25,12 +26,38 @@ import { Component } from '@angular/core';
 })
 export class DateComponent {
   showPicker = false;
+  pickedFromDate: NgbDate;
+  pickedToDate: NgbDate;
+
+  constructor(calendar: NgbCalendar) {
+    this.pickedFromDate = calendar.getToday();
+    this.pickedToDate = calendar.getNext(calendar.getToday(), 'd', 3);
+  }
 
   onClickedOutside() {
     this.showPicker = false;
+    console.log(this.showPicker);
   }
 
   onShowPicker() {
     this.showPicker = true;
+  }
+
+  onDateSelection(event: any) {
+    console.log(this.pickedFromDate, this.pickedToDate);
+    this.pickedFromDate = event.fromDate;
+    this.pickedToDate = event.toDate;
+  }
+
+  formatDate(date: NgbDate): string {
+    if (date) {
+      const day = date.day < 10 ? `0${date.day}` : date.day;
+      const month = date.month < 10 ? `0${date.month}` : date.month;
+      const year = date.year;
+
+      return `${day}/${month}/${year}`;
+    }
+
+    return '';
   }
 }

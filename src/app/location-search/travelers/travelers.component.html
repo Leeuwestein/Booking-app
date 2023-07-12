@@ -1,1 +1,22 @@
-<p>travelers works!</p>
+<div
+  class="travelers-component"
+  [ngClass]="showPicker ? 'active' : ''"
+  (clickOutside)="onClickedOutside()"
+  (click)="onShowPicker()"
+>
+  <app-traveler-picker
+    [@bounceAnimation]
+    *ngIf="showPicker"
+    (closePicker)="onClickedOutside()"
+  >
+  </app-traveler-picker>
+
+  <div class="upper-container">
+    <span class="icon"></span>
+    <span class="title">Travelers</span>
+  </div>
+  <div class="lower-container">
+    <span class="icon"></span>
+    <input type="text" placeholder="{{ 'Select number of guests' }}" />
+  </div>
+</div>

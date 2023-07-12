@@ -1,0 +1,59 @@
+<div class="traveler-picker">
+  <div class="row adults-row">
+    <div class="left">
+      <span class="title">Adults</span>
+      <span class="conent">Age 13 or above</span>
+    </div>
+    <div class="right amount-picker">
+      <a
+        class="decrease-button"
+        (click)="changeAdultCount(adultCounter, 'decrement')"
+      ></a>
+      <span> {{ this.adultCounter }} </span>
+      <a
+        class="increase-button"
+        (click)="changeAdultCount(adultCounter, 'increment')"
+      ></a>
+    </div>
+  </div>
+
+  <div class="row children-row">
+    <div class="left">
+      <span class="title">Children</span>
+      <span class="conent">Ages 2-12</span>
+    </div>
+    <div class="right amount-picker">
+      <a class="decrease-button"></a>
+      <span>0</span>
+      <a class="increase-button"></a>
+    </div>
+  </div>
+
+  <div class="row infants-row">
+    <div class="left">
+      <span class="title">Infants</span>
+      <span class="conent">Under 2</span>
+    </div>
+    <div class="right amount-picker">
+      <a class="decrease-button"></a>
+      <span>0</span>
+      <a class="increase-button"></a>
+    </div>
+  </div>
+
+  <div class="row infants-row">
+    <div class="left">
+      <span class="title">Pets</span>
+      <span class="conent">Regular or service animals</span>
+    </div>
+    <div class="right amount-picker">
+      <a class="decrease-button"></a>
+      <span>0</span>
+      <a class="increase-button"></a>
+    </div>
+  </div>
+
+  <div class="lower-container">
+    <a class="button button-done" (click)="onFinishedPicking()">Done</a>
+  </div>
+</div>

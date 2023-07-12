@@ -1,0 +1,71 @@
+.travelers-component {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.3s;
+
+  &.active {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    transition: 0.3s;
+  }
+
+  .upper-container {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      background-image: url(../../../assets/img/travelers.png);
+      background-size: cover;
+    }
+
+    .title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-left: 15px;
+    }
+  }
+
+  .lower-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+
+    input {
+      color: #969ba4;
+      border: none;
+      margin-left: 16px;
+    }
+
+    input:focus {
+      border: none;
+      outline: none;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      background-size: cover;
+    }
+
+    .icon.active {
+      background-image: url(../../../assets/img/check.png);
+    }
+
+    .title {
+    }
+
+    span.result {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-left: 15px;
+    }
+  }
+}

@@ -16,6 +16,7 @@ import { DestinationPickerComponent } from './location-search/destination/destin
 import { DatePickerComponent } from './location-search/date/date-picker/date-picker.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TravelerPickerComponent } from '../app/location-search/travelers/traveler-picker/traveler-picker.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ClickOutsideDirective,
     DestinationPickerComponent,
     DatePickerComponent,
+    TravelerPickerComponent,
   ],
   imports: [
     BrowserModule,

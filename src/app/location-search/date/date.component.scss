@@ -9,6 +9,13 @@
   .date-component-section {
     display: flex;
     flex-direction: column;
+    padding: 0 15px;
+
+    &.checkin {
+    }
+
+    &.checkout {
+    }
 
     &.active {
       box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
@@ -44,6 +51,7 @@
         color: #969ba4;
         border: none;
         margin-left: 16px;
+        max-width: 100px;
       }
 
       input:focus {
