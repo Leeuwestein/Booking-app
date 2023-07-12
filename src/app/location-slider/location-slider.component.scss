@@ -55,25 +55,66 @@
   .slider-prev-button {
     position: absolute;
     display: flex;
-    top: 61%;
+    top: 55%;
+    opacity: 0.8;
     width: 60px;
     height: 60px;
     right: 50px;
     border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.4392156863);
+    border: 1px solid #fff;
+    background-image: url(../../assets/img/previous.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
     z-index: 1;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      background-color: #fff;
+      scale: 0.9;
+      transition: 0.25s ease-in-out;
+    }
+
+    &:active {
+      background-color: #fff;
+      scale: 0.85;
+      transition: 0.15s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    }
   }
 
-  .slick-next-button {
+  .slider-next-button {
     position: absolute;
     display: flex;
     z-index: 1;
-    top: 72%;
+    opacity: 0.8;
+    top: 67%;
     width: 60px;
     height: 60px;
     right: 50px;
     border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.4392156863);
+    border: 1px solid #fff;
+    background-image: url(../../assets/img/next.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+      background-color: #fff;
+      scale: 0.9;
+      transition: 0.25s ease-in-out;
+    }
+
+    &:active {
+      background-color: #fff;
+      scale: 0.85;
+      transition: 0.15s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    }
   }
 }
 
@@ -123,7 +164,7 @@
 .slider-next-title-container {
   position: absolute;
   display: flex;
-  width: 320px;
+  width: 200px;
   height: 50px;
   left: 710px;
   z-index: 2;

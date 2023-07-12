@@ -28,6 +28,8 @@ export class DateComponent {
   showPicker = false;
   pickedFromDate: NgbDate;
   pickedToDate: NgbDate;
+  checkInDateSelectedText: string = 'Add a date';
+  checkOutDateSelectedText: string = 'Add a date';
 
   constructor(calendar: NgbCalendar) {
     this.pickedFromDate = calendar.getToday();
@@ -47,6 +49,8 @@ export class DateComponent {
     console.log(this.pickedFromDate, this.pickedToDate);
     this.pickedFromDate = event.fromDate;
     this.pickedToDate = event.toDate;
+    this.checkInDateSelectedText = this.formatDate(this.pickedFromDate);
+    this.checkOutDateSelectedText = this.formatDate(this.pickedToDate);
   }
 
   formatDate(date: NgbDate): string {

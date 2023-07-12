@@ -8,6 +8,7 @@
     [@bounceAnimation]
     *ngIf="showPicker"
     (closePicker)="onClickedOutside()"
+    (travelerAmount)="onTravelerNumberReceived($event)"
   >
   </app-traveler-picker>
 
@@ -17,6 +18,6 @@
   </div>
   <div class="lower-container">
     <span class="icon"></span>
-    <input type="text" placeholder="{{ 'Select number of guests' }}" />
+    <span class="description"> {{ this.descriptionText }} </span>
   </div>
 </div>

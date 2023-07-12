@@ -16,11 +16,7 @@
     </div>
     <div class="lower-container lower-container-1">
       <span class="icon"></span>
-      <input
-        type="text"
-        placeholder="Add a date"
-        [value]="formatDate(pickedFromDate)"
-      />
+      <span class="description"> {{ checkInDateSelectedText }} </span>
     </div>
   </div>
   <div class="date-component-section">
@@ -30,11 +26,7 @@
     </div>
     <div class="lower-container lower-container-2">
       <span class="icon"></span>
-      <input
-        type="text"
-        placeholder="Add a date"
-        [value]="formatDate(pickedToDate)"
-      />
+      <span class="description"> {{ checkOutDateSelectedText }}</span>
     </div>
   </div>
 </div>

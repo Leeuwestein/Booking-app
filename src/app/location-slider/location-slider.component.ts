@@ -77,6 +77,14 @@ export class LocationSliderComponent {
     this.slickLowerLocation.slickNext();
   }
 
+  prevSlide() {
+    this.slickMain.slickPrev();
+    this.slickNext.slickPrev();
+    this.slickMainTitle.slickPrev();
+    this.slickNextTitle.slickPrev();
+    this.slickLowerLocation.slickPrev();
+  }
+
   nextSlides = [...this.slides.slice(1), this.slides[0]];
 
   slideConfig = {

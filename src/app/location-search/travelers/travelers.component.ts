@@ -30,7 +30,8 @@ import {
   ],
 })
 export class TravelersComponent {
-  showPicker = false;
+  showPicker: boolean = false;
+  descriptionText: string = 'Select number of guests';
 
   onClickedOutside() {
     this.showPicker = false;
@@ -38,5 +39,9 @@ export class TravelersComponent {
 
   onShowPicker() {
     this.showPicker = true;
+  }
+
+  onTravelerNumberReceived(number: number) {
+    this.descriptionText = number.toString() + ' Adults, ...';
   }
 }

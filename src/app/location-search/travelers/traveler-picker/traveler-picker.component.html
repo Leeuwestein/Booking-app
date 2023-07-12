@@ -2,17 +2,18 @@
   <div class="row adults-row">
     <div class="left">
       <span class="title">Adults</span>
-      <span class="conent">Age 13 or above</span>
+      <span class="content">Age 13 or above</span>
     </div>
     <div class="right amount-picker">
       <a
+        [ngClass]="{ inactive: adultCounter === 0 }"
         class="decrease-button"
-        (click)="changeAdultCount(adultCounter, 'decrement')"
+        (click)="changeCounter(adultCounter, 'decrement')"
       ></a>
       <span> {{ this.adultCounter }} </span>
       <a
         class="increase-button"
-        (click)="changeAdultCount(adultCounter, 'increment')"
+        (click)="changeCounter(adultCounter, 'increment')"
       ></a>
     </div>
   </div>
@@ -20,10 +21,13 @@
   <div class="row children-row">
     <div class="left">
       <span class="title">Children</span>
-      <span class="conent">Ages 2-12</span>
+      <span class="content">Ages 2-12</span>
     </div>
     <div class="right amount-picker">
-      <a class="decrease-button"></a>
+      <a
+        [ngClass]="{ inactive: childrenCounter === 0 }"
+        class="decrease-button"
+      ></a>
       <span>0</span>
       <a class="increase-button"></a>
     </div>
@@ -32,22 +36,25 @@
   <div class="row infants-row">
     <div class="left">
       <span class="title">Infants</span>
-      <span class="conent">Under 2</span>
+      <span class="content">Under 2</span>
     </div>
     <div class="right amount-picker">
-      <a class="decrease-button"></a>
+      <a
+        [ngClass]="{ inactive: infantCounter === 0 }"
+        class="decrease-button"
+      ></a>
       <span>0</span>
       <a class="increase-button"></a>
     </div>
   </div>
 
-  <div class="row infants-row">
+  <div class="row pets-row">
     <div class="left">
       <span class="title">Pets</span>
-      <span class="conent">Regular or service animals</span>
+      <span class="content">Regular or service animals</span>
     </div>
     <div class="right amount-picker">
-      <a class="decrease-button"></a>
+      <a [ngClass]="{ inactive: petCounter === 0 }" class="decrease-button"></a>
       <span>0</span>
       <a class="increase-button"></a>
     </div>

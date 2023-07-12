@@ -6,6 +6,8 @@
   border-radius: 10px;
   padding: 20px;
   transition: 0.3s;
+  cursor: pointer;
+  min-width: 200px;
 
   &.active {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
@@ -37,15 +39,11 @@
     align-items: center;
     margin-top: 5px;
 
-    input {
+    .description {
       color: #969ba4;
       border: none;
-      margin-left: 16px;
-    }
-
-    input:focus {
-      border: none;
-      outline: none;
+      margin-left: 20px;
+      font-size: 1.3em;
     }
 
     .icon {
@@ -57,9 +55,6 @@
 
     .icon.active {
       background-image: url(../../../assets/img/check.png);
-    }
-
-    .title {
     }
 
     span.result {

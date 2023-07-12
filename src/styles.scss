@@ -27,10 +27,29 @@ a.button {
   font-weight: 700;
   background-color: #2a7bd8;
   max-width: fit-content;
+  transition: 0.25s ease-in-out;
+  font-size: 1.3em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #4899f6;
+    scale: 0.95;
+    transition: 0.25s ease-in-out;
+  }
+
+  &:active {
+    background-color: #4899f6;
+    scale: 0.88;
+    transition: 0.15s ease-in-out;
+  }
 
   span {
-    font-size: 1.3em;
   }
+}
+
+.slick-slide {
+  // Fixes artefacts appearing between last and first slide.
+  -webkit-backface-visibility: hidden;
 }
 
 .slider-main-image {
@@ -39,6 +58,7 @@ a.button {
 
   ul.slick-dots {
     bottom: 140px !important;
+    pointer-events: none !important;
 
     li.slick-active button::before {
       color: #fff;
