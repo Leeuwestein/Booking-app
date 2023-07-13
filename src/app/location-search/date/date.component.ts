@@ -28,6 +28,7 @@ export class DateComponent {
   showPicker = false;
   pickedFromDate: NgbDate;
   pickedToDate: NgbDate;
+  dateSelected: boolean = false;
   checkInDateSelectedText: string = 'Add a date';
   checkOutDateSelectedText: string = 'Add a date';
 
@@ -38,7 +39,6 @@ export class DateComponent {
 
   onClickedOutside() {
     this.showPicker = false;
-    console.log(this.showPicker);
   }
 
   onShowPicker() {
@@ -46,11 +46,14 @@ export class DateComponent {
   }
 
   onDateSelection(event: any) {
-    console.log(this.pickedFromDate, this.pickedToDate);
+    this.dateSelected = true;
     this.pickedFromDate = event.fromDate;
     this.pickedToDate = event.toDate;
     this.checkInDateSelectedText = this.formatDate(this.pickedFromDate);
     this.checkOutDateSelectedText = this.formatDate(this.pickedToDate);
+
+    console.log('dateselected = ' + this.dateSelected);
+    console.log(this.dateSelected);
   }
 
   formatDate(date: NgbDate): string {

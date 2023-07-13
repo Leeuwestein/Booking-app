@@ -32,8 +32,6 @@ import { cities } from './citydata';
   ],
 })
 export class DestinationComponent {
-  constructor() {}
-
   cities: any = cities;
   showPicker = false;
   isLocationSelected = false;
